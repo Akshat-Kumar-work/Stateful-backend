@@ -4,6 +4,8 @@ import { games } from "./store"
 import { startLogger } from "./logger";
 import { startLoggerForGameManger } from "./logger";
 import { gameMangerObject } from "./store";
+import { singleton_instance_GameManger } from "./store";
+import { startLoggerForSingletonPattern } from "./logger";
 
 //startLogger();
 
@@ -20,15 +22,29 @@ import { gameMangerObject } from "./store";
 
 
 
+//for class
+// setInterval( ()=>{
+//     const currentGameId = Math.random().toString();
+//     gameMangerObject.addGame(currentGameId,'akshat','avnish');
+//     gameMangerObject.addMove(currentGameId,'e4');
+// },5000);
 
+// //logging game info of game class
+// startLoggerForGameManger();
+
+
+
+//for singleton class
 setInterval( ()=>{
     const currentGameId = Math.random().toString();
-    gameMangerObject.addGame(currentGameId,'akshat','avnish');
-    gameMangerObject.addMove(currentGameId,'e4');
+    singleton_instance_GameManger.addGame(currentGameId,'akshat','avnish');
+    singleton_instance_GameManger.addMove(currentGameId,'e4');
 },5000);
 
 //logging game info of game class
-startLoggerForGameManger();
+startLoggerForSingletonPattern();
+
+
 
 
 //here we have to actually create ws server

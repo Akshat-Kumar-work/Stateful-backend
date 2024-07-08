@@ -15,7 +15,7 @@ export const games :game[]= [];
 
 //state management with a class
 //this is better approach , as we dont have to check the code we simply call the function to update
-export class GamesManger{
+ class GamesManger{
 
     games: game[] = [];
 
@@ -79,7 +79,7 @@ export const gameMangerObject = new GamesManger();
 //so how we can create a single instance -> by using static methods and variable
 // static method or variable or attribute is part of class it is not depend or associated upon instance of class/object
 
-export class gameMangerUsing_Singleton{
+ class gameMangerUsing_Singleton{
 
     //it is a static attribute type of this instance is same class 
     //basically creating a same instance of same class which is private 
@@ -98,7 +98,7 @@ export class gameMangerUsing_Singleton{
             return gameMangerUsing_Singleton.instance;
         }else{
             //agar instance phle se nai hai toh new instance bnao and return it
-            gameMangerUsing_Singleton.instance = new gameMangerUsing_Singleton();
+            this.instance = new gameMangerUsing_Singleton();
             return gameMangerUsing_Singleton.instance;
         }
       
@@ -119,7 +119,7 @@ export class gameMangerUsing_Singleton{
 
        //function to add move
        addMove(gameId:string,move:string){
-        console.log(`adding move ${gameId} to game id ${gameId}`);
+        console.log(`adding move ${move} to game id ${gameId}`);
         const game = this.games.find(game=>game.id === gameId);
         game?.moves.push(move);
     }
