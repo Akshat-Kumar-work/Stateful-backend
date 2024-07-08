@@ -53,6 +53,79 @@ export class GamesManger{
 export const gameMangerObject = new GamesManger();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //here comes singleton pattern
 //it means if there is something you want to initialize once than use singleton pattern
 //we use singleton in most of the open source 
+//example -> how can we inforce that no one can ever create this new game manger instance there will be only single instance of this game manager
+//to implement this make the constructor private, so that no one can call it from out side
+
+
+
+//singleton -> making constructor private
+//so how we can create a single instance -> by using static methods and variable
+// static method or variable or attribute is part of class it is not depend or associated upon instance of class/object
+
+export class gameMangerUsing_Singleton{
+
+    //it is a static attribute type of this instance is same class 
+    //basically creating a same instance of same class which is private 
+    private static instance : gameMangerUsing_Singleton;
+
+    games: game[] = [];
+
+    private constructor(){
+        this.games = [];
+    }
+
+    static getInstance(){
+        //agar instance bna hua hai phle se aur kisi bevkoof developer n again getInstance call kari hai toh
+        //new instance return na ho toh we are checking it by static attribute of class
+        if(gameMangerUsing_Singleton.instance){
+            return gameMangerUsing_Singleton.instance;
+        }else{
+            //agar instance phle se nai hai toh new instance bnao and return it
+            gameMangerUsing_Singleton.instance = new gameMangerUsing_Singleton();
+            return gameMangerUsing_Singleton.instance;
+        }
+      
+    }
+    
+ 
+    //function add game
+    addGame(gameid:string , whitePlayerName:string , blackPlayerName:string ){
+        const game = {
+            id:gameid,
+            whitePlayerName:whitePlayerName,
+            blackPlayerName:blackPlayerName,
+            moves:[]
+        }
+
+        this.games.push(game);
+    }
+
+       //function to add move
+       addMove(gameId:string,move:string){
+        console.log(`adding move ${gameId} to game id ${gameId}`);
+        const game = this.games.find(game=>game.id === gameId);
+        game?.moves.push(move);
+    }
+
+
+
+}
+
+ export const singleton_instance_GameManger = gameMangerUsing_Singleton.getInstance();
