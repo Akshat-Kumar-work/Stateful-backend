@@ -13,4 +13,7 @@ setInterval( ()=>{
         moves:[]
     })
     games[0].moves.push('e4');
-},5000)
+},5000);
+
+//here we have to actually create ws server
+//creating chess game like structure to understand stateful backend

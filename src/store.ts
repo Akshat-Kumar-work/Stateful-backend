@@ -1,4 +1,4 @@
-
+//in memory store
 interface game{
     id:string,
     whitePlayerName:string,

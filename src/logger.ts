@@ -4,6 +4,6 @@ import { games } from "./store";
 
 export function startLogger (){
 setInterval(()=>{
-    console.log(games);
+    console.log("logging games info after every 5 seconds",games);
 },5000)
 }
