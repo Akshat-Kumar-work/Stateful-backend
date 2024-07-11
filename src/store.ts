@@ -79,7 +79,7 @@ export const gameMangerObject = new GamesManger();
 //so how we can create a single instance -> by using static methods and variable
 // static method or variable or attribute is part of class it is not depend or associated upon instance of class/object
 
- class gameMangerUsing_Singleton{
+export class gameMangerUsing_Singleton{
 
     //it is a static attribute type of this instance is same class 
     //basically creating a same instance of same class which is private 
@@ -128,4 +128,6 @@ export const gameMangerObject = new GamesManger();
 
 }
 
- export const singleton_instance_GameManger = gameMangerUsing_Singleton.getInstance();
+//now we dont have to export the object of class we can call the getInstance function anywhere 
+//it will provide us the same instance all over the application 
+ //export const singleton_instance_GameManger = gameMangerUsing_Singleton.getInstance();

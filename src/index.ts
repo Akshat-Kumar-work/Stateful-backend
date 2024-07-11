@@ -4,7 +4,7 @@ import { games } from "./store"
 import { startLogger } from "./logger";
 import { startLoggerForGameManger } from "./logger";
 import { gameMangerObject } from "./store";
-import { singleton_instance_GameManger } from "./store";
+import { gameMangerUsing_Singleton} from "./store";
 import { startLoggerForSingletonPattern } from "./logger";
 
 //startLogger();
@@ -37,8 +37,8 @@ import { startLoggerForSingletonPattern } from "./logger";
 //for singleton class
 setInterval( ()=>{
     const currentGameId = Math.random().toString();
-    singleton_instance_GameManger.addGame(currentGameId,'akshat','avnish');
-    singleton_instance_GameManger.addMove(currentGameId,'e4');
+    gameMangerUsing_Singleton.getInstance().addGame(currentGameId,'akshat','avnish');
+   gameMangerUsing_Singleton.getInstance().addMove(currentGameId,'e4');
 },5000);
 
 //logging game info of game class
